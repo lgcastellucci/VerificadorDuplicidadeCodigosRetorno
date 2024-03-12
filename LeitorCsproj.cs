@@ -2,9 +2,9 @@
 
 namespace VerificadorDuplicidadeCodigosRetorno
 {
-    public class LeitorCsproj
+    public static class LeitorCsproj
     {
-        public List<string> LerItensCompile(string caminhoCsproj)
+        public static List<string> LerItensCompile(string caminhoCsproj)
         {
             // Lista para armazenar os itens "Compile Include"
             var itensCompile = new List<string>();
