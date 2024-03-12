@@ -37,6 +37,11 @@ namespace VerificadorDuplicidadeCodigosRetorno
                     {
                         var leitorCsproj = new LeitorCsproj();
                         var itensCompile = leitorCsproj.LerItensCompile(val);
+
+                        foreach (var item in itensCompile)
+                        {
+                            Console.WriteLine(item);
+                        }
                     }
                     else
                     {
@@ -58,7 +63,7 @@ namespace VerificadorDuplicidadeCodigosRetorno
             return result;
         }
 
-        
+
 
     }
 }
