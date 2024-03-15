@@ -4,8 +4,9 @@ namespace VerificadorDuplicidadeCodigosRetorno
 {
     public static class LeituraArquivo
     {
-        public static List<string> BuscarCodigosErro(string caminhoArquivo)
+        private static List<string> BusBuscarCodigosErro(string caminhoArquivo, string delimitadorDaString)
         {
+
             // Lista para armazenar os códigos de erro encontrados
             var codigosErro = new List<string>();
 
@@ -23,7 +24,7 @@ namespace VerificadorDuplicidadeCodigosRetorno
                 {
                     string linha = sr.ReadLine();
 
-                    string[] linhaSplit = linha.Split('\"');
+                    string[] linhaSplit = linha.Split(delimitadorDaString);
                     foreach (var item in linhaSplit)
                     {
                         // Verificar se a linha contém traço, isso separa a identificação da função e a identificação do erro
@@ -40,6 +41,16 @@ namespace VerificadorDuplicidadeCodigosRetorno
 
             // Retornar a lista de códigos de erro
             return codigosErro;
+        }
+
+        public static List<string> BuscarCodigosErroNoCS(string caminhoArquivo)
+        {
+            return BusBuscarCodigosErro(caminhoArquivo, "\"");
+        }
+
+        public static List<string> BuscarCodigosErroNoPAS(string caminhoArquivo)
+        {
+            return BusBuscarCodigosErro(caminhoArquivo, "\'");
         }
 
         public static string SomenteNumeros(string str)
